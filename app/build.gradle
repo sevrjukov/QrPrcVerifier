@@ -43,7 +43,12 @@ dependencies {
     implementation "androidx.camera:camera-lifecycle:$camerax_version"
     implementation "androidx.camera:camera-view:1.0.0-alpha14"
 
+    // https://mvnrepository.com/artifact/commons-codec/commons-codec
+    implementation group: 'commons-codec', name: 'commons-codec', version: '1.15'
+
+
     // qrcode reader
     implementation 'com.google.zxing:core:3.3.0'
-    compileOnly 'com.google.android.wearable:wearable:2.6.0'
+    compileOnly "org.projectlombok:lombok:1.18.16"
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'
 }

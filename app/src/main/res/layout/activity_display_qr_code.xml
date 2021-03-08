@@ -6,11 +6,42 @@
     android:layout_height="match_parent"
     tools:context=".DisplayQrCodeActivity">
 
-    <TextView
-        android:id="@+id/textViewQr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="QR code content"
-        tools:layout_editor_absoluteX="61dp"
-        tools:layout_editor_absoluteY="217dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/decodedFirstname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="jmeno"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        <TextView
+            android:id="@+id/decodedLastname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="prijmeni"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        <TextView
+            android:id="@+id/decodedBirthnumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="rodne cislo"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        <CheckBox
+            android:id="@+id/checkBoxOfflineVerify"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:text="offline verifikace" />
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
