@@ -1,7 +1,6 @@
-package cz.sevrjukov.qrpcr.verifier;
+package cz.sevrjukov.qrpcr.verifier.activities;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Size;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.camera.core.Camera;
 import androidx.camera.core.CameraSelector;
@@ -16,7 +15,6 @@ import androidx.lifecycle.LifecycleOwner;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,6 +25,10 @@ import com.google.common.util.concurrent.ListenableFuture;
 
 import java.util.concurrent.ExecutionException;
 
+import cz.sevrjukov.qrpcr.verifier.QRCodeFoundListener;
+import cz.sevrjukov.qrpcr.verifier.QRCodeImageAnalyzer;
+import cz.sevrjukov.qrpcr.verifier.R;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final int PERMISSION_REQUEST_CAMERA = 0;
@@ -34,26 +36,13 @@ public class MainActivity extends AppCompatActivity {
     private PreviewView previewView;
     private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
 
-    private Button qrCodeFoundButton;
     private String qrCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         previewView = findViewById(R.id.activity_main_previewView);
-
-        qrCodeFoundButton = findViewById(R.id.activity_main_qrCodeFoundButton);
-        qrCodeFoundButton.setVisibility(View.INVISIBLE);
-        qrCodeFoundButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), qrCode, Toast.LENGTH_SHORT).show();
-                Log.i(MainActivity.class.getSimpleName(), "QR Code Found: " + qrCode);
-            }
-        });
-
         cameraProviderFuture = ProcessCameraProvider.getInstance(this);
         requestCamera();
     }
@@ -138,10 +127,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
-            @Override
-            public void qrCodeNotFound() {
-                qrCodeFoundButton.setVisibility(View.INVISIBLE);
-            }
+
         }));
 
         Camera camera = cameraProvider.bindToLifecycle((LifecycleOwner) this, cameraSelector, imageAnalysis, preview);

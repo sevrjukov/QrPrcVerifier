@@ -1,4 +1,4 @@
-package cz.sevrjukov.qrpcr.verifier;
+package cz.sevrjukov.qrpcr.verifier.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import cz.sevrjukov.qrpcr.verifier.R;
 import cz.sevrjukov.qrpcr.verifier.dto.DecodeResultDto;
 import cz.sevrjukov.qrpcr.verifier.service.QrCodeDecoder;
 
