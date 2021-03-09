@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.DisplayQrCodeActivity">
+    tools:context=".activities.DisplayScanResultActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,6 +42,18 @@
             android:layout_height="wrap_content"
             android:clickable="false"
             android:text="offline verifikace" />
+
+        <Button
+            android:id="@+id/btnScanResScanNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Skenovat dalsi QR" />
+
+        <Button
+            android:id="@+id/btnScanResManInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Zadat kod rucne" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

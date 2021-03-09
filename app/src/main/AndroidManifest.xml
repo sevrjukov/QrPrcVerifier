@@ -3,6 +3,7 @@
     package="cz.sevrjukov.qrpcr.verifier">
 
     <uses-feature android:name="android.hardware.camera.any" />
+
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
@@ -13,10 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QrPrcVerifier">
 
+        <activity android:name=".activities.ScanQrCodeActivity"/>
 
-
-        <activity android:name=".activities.DisplayQrCodeActivity" />
-
+        <activity android:name=".activities.DisplayScanResultActivity" />
 
         <activity android:name=".activities.MainActivity">
             <intent-filter>

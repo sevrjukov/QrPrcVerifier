@@ -3,36 +3,59 @@ package cz.sevrjukov.qrpcr.verifier.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import cz.sevrjukov.qrpcr.verifier.R;
 import cz.sevrjukov.qrpcr.verifier.dto.DecodeResultDto;
 import cz.sevrjukov.qrpcr.verifier.service.QrCodeDecoder;
 
-public class DisplayQrCodeActivity extends AppCompatActivity {
+public class DisplayScanResultActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_qr_code);
+        setContentView(R.layout.activity_scan_result);
 
-        Intent intent = getIntent();
+        setUpButtonListeners();
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        final Intent intent = getIntent();
         String qrCodeData = intent.getStringExtra("qr_content");
         try {
             decodeAndDisplayData(qrCodeData);
-
         } catch (Exception ex) {
             Log.e("tag", "decoding failed", ex);
             //TODO fix this
             ((TextView) findViewById(R.id.decodedFirstname)).setText("Chyba");
         }
+    }
 
+    private void setUpButtonListeners() {
+        Button scanBtn = (Button) findViewById(R.id.btnScanResScanNext);
+        scanBtn.setOnClickListener(v -> launchScanActivity());
+        Button manInputBtn = (Button) findViewById(R.id.btnScanResManInput);
+        manInputBtn.setOnClickListener(v -> launchManualInputActivity());
+    }
+
+
+    private void launchScanActivity() {
+        final Intent intent = new Intent(this, ScanQrCodeActivity.class);
+        intent.setAction(Intent.ACTION_VIEW);
+        startActivity(intent);
+    }
+
+
+    private void launchManualInputActivity() {
+        //TODO implement
     }
 
 
