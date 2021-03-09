@@ -1,6 +1,7 @@
 package cz.sevrjukov.qrpcr.verifier.dto;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 import lombok.Builder;
 import lombok.Data;
@@ -17,9 +18,10 @@ public class DecodeResultDto {
     private String testFacilityId;
     private String testId;
 
-    private String testTime;
+    private Date testTime;
     private TestResult result;
-    private String signature;
-    private boolean signatureOk;
+    private int keyId;
+    private byte [] signedContent;
+    private byte[] signature;
 
 }

@@ -24,6 +24,6 @@ public enum TestResult {
                 return r;
             }
         }
-        throw  new IllegalArgumentException("Unknown test result type " + code);
+        throw new IllegalArgumentException("Unknown test result type " + code);
     }
 }

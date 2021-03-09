@@ -1,9 +1,9 @@
 package cz.sevrjukov.qrpcr.verifier.service;
 
-import android.content.Context;
-
 import org.junit.Assert;
 import org.junit.Test;
+
+import cz.sevrjukov.qrpcr.verifier.service.decode.QrCodeDecoder;
 
 public class QrCodeDecoderTest {
 

@@ -1,4 +1,4 @@
-package cz.sevrjukov.qrpcr.verifier;
+package cz.sevrjukov.qrpcr.verifier.service.qrparse;
 
 
 

@@ -22,8 +22,8 @@ import com.google.common.util.concurrent.ListenableFuture;
 
 import java.util.concurrent.ExecutionException;
 
-import cz.sevrjukov.qrpcr.verifier.QRCodeFoundListener;
-import cz.sevrjukov.qrpcr.verifier.QRCodeImageAnalyzer;
+import cz.sevrjukov.qrpcr.verifier.service.qrparse.QRCodeFoundListener;
+import cz.sevrjukov.qrpcr.verifier.service.qrparse.QRCodeImageAnalyzer;
 import cz.sevrjukov.qrpcr.verifier.R;
 
 public class ScanQrCodeActivity extends AppCompatActivity {
